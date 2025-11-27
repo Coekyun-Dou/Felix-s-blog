@@ -15,7 +15,7 @@ export default function ReadingPage() {
       title={readingPageConfig.headline}
       intro={readingPageConfig.description}
     >
-      <MasonryGrid columns={3}>
+      <MasonryGrid columns={5}>
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}

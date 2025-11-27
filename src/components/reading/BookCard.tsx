@@ -1,15 +1,22 @@
 "use client"
 
 import { BookType } from '@/config/books'
-import { BookOpen, Calendar, Star } from 'lucide-react'
+import { BookOpen } from 'lucide-react'
 import Image from 'next/image'
+import { useState } from 'react'
+import { BookDetailModal } from './BookDetailModal'
 
 export function BookCard({ book }: { book: BookType }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <div className="group relative flex flex-col h-full break-inside-avoid mb-6">
-      <div className="relative flex flex-col h-full w-full rounded-2xl border border-muted-foreground/20 shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl group-hover:border-primary/30 group-hover:bg-gradient-to-br group-hover:from-primary/5 group-hover:via-transparent group-hover:to-primary/5 overflow-hidden">
-        {/* 书籍封面 */}
-        <div className="relative w-full aspect-[3/4] bg-gradient-to-br from-primary/10 via-muted/20 to-primary/5 overflow-hidden">
+    <>
+      <div 
+        className="group relative flex flex-col break-inside-avoid mb-4 cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-muted-foreground/20 shadow-md transition-all duration-300 group-hover:scale-[1.05] group-hover:shadow-2xl group-hover:border-primary/40">
+          {/* 书籍封面 */}
           {book.cover ? (
             <Image
               src={book.cover}
@@ -18,62 +25,32 @@ export function BookCard({ book }: { book: BookType }) {
               className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
           ) : (
-            <div className="flex items-center justify-center h-full">
-              <BookOpen size={64} className="text-primary/30" />
+            <div className="flex items-center justify-center h-full bg-gradient-to-br from-primary/10 via-muted/20 to-primary/5">
+              <BookOpen size={48} className="text-primary/30" />
             </div>
           )}
-          {/* 评分角标 */}
-          {book.rating && (
-            <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
-              <Star size={14} className="text-yellow-500 fill-yellow-500" />
-              <span className="text-xs font-semibold">{book.rating}</span>
+          
+          {/* Hover遮罩层显示标题 */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div className="p-3 w-full">
+              <h3 className="text-white text-sm font-semibold line-clamp-2">
+                {book.title}
+              </h3>
+              {book.author && (
+                <p className="text-white/80 text-xs mt-1">{book.author}</p>
+              )}
             </div>
-          )}
-        </div>
-
-        {/* 书籍信息 */}
-        <div className="p-4 flex flex-col gap-3">
-          {/* 标题和作者 */}
-          <div>
-            <h3 className="text-base font-semibold tracking-tight group-hover:text-primary transition-colors duration-300 line-clamp-2">
-              {book.title}
-            </h3>
-            {book.author && (
-              <p className="text-sm text-muted-foreground mt-1">{book.author}</p>
-            )}
           </div>
-
-          {/* 阅读日期 */}
-          {book.readDate && (
-            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Calendar size={14} />
-              <span>{book.readDate}</span>
-            </div>
-          )}
-
-          {/* 书评 */}
-          {book.review && (
-            <p className="text-sm text-muted-foreground line-clamp-3">
-              {book.review}
-            </p>
-          )}
-
-          {/* 标签 */}
-          {book.tags && book.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-2">
-              {book.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors duration-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
       </div>
-    </div>
+
+      {/* 详情弹窗 */}
+      <BookDetailModal 
+        book={book} 
+        isOpen={isOpen} 
+        onClose={() => setIsOpen(false)} 
+      />
+    </>
   )
 }
 
