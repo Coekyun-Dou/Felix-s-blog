@@ -41,7 +41,7 @@ export const books: Array<BookType> = [
     id: 3,
     title: '《三体Ⅱ：黑暗森林》',
     author: '刘慈欣',
-    cover: '', // ⬅️ 在这里填入第3本书的封面图片链接
+    cover: 'https://github.com/Coekyun-Dou/Felix-s-blog/blob/main/image/%E4%B8%89%E4%BD%932.jpg?raw=true', // ⬅️ 在这里填入第3本书的封面图片链接
     rating: 5,
     readDate: '2025-11',
     review: '黑暗森林法则、猜疑链、技术爆炸...',
