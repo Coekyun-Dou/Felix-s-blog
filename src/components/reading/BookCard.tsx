@@ -3,19 +3,55 @@
 import { BookType } from '@/config/books'
 import { BookOpen } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { BookDetailModal } from './BookDetailModal'
 
 export function BookCard({ book }: { book: BookType }) {
   const [isOpen, setIsOpen] = useState(false)
+  
+  // 为每本书生成一个固定的随机样式（基于ID保持一致性）
+  const cardStyle = useMemo(() => {
+    // 使用书籍ID作为随机种子，确保每次渲染样式一致
+    const seed = book.id
+    const random = (min: number, max: number) => {
+      const x = Math.sin(seed * 12.9898) * 43758.5453
+      return min + (x - Math.floor(x)) * (max - min)
+    }
+    
+    // 随机高宽比，让卡片高度不一致
+    const aspectRatios = ['3/4', '2/3', '4/5', '3/5', '5/7']
+    const aspectRatio = aspectRatios[Math.floor(random(0, aspectRatios.length))]
+    
+    // 随机旋转角度
+    const rotation = random(-2, 2)
+    
+    // 随机边距
+    const marginBottom = random(0.5, 1.5)
+    
+    return {
+      aspectRatio,
+      rotation,
+      marginBottom
+    }
+  }, [book.id])
 
   return (
     <>
       <div 
-        className="group relative flex flex-col break-inside-avoid mb-4 cursor-pointer"
+        className="group relative flex flex-col break-inside-avoid cursor-pointer"
+        style={{ 
+          marginBottom: `${cardStyle.marginBottom}rem`,
+          transform: `rotate(${cardStyle.rotation}deg)`,
+          transition: 'transform 0.3s ease'
+        }}
         onClick={() => setIsOpen(true)}
       >
-        <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-muted-foreground/20 shadow-md transition-all duration-300 group-hover:scale-[1.05] group-hover:shadow-2xl group-hover:border-primary/40">
+        <div 
+          className="relative w-full rounded-xl overflow-hidden border border-muted-foreground/20 shadow-md transition-all duration-300 group-hover:scale-[1.05] group-hover:shadow-2xl group-hover:border-primary/40 group-hover:rotate-0"
+          style={{
+            aspectRatio: cardStyle.aspectRatio
+          }}
+        >
           {/* 书籍封面 */}
           {book.cover ? (
             <Image

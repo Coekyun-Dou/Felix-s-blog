@@ -10,12 +10,14 @@ export type BookType = {
   tags?: string[]
 }
 
+const coverImage = 'https://github.com/Coekyun-Dou/Felix-s-blog/blob/main/image/%E6%88%91%E4%BB%AC%E4%BB%A8.jpg?raw=true'
+
 export const books: Array<BookType> = [
   {
     id: 1,
     title: '书籍标题 1',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2024-01',
     review: '这是一本很棒的书...',
@@ -25,7 +27,7 @@ export const books: Array<BookType> = [
     id: 2,
     title: '书籍标题 2',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2024-02',
     review: '值得一读的好书...',
@@ -35,7 +37,7 @@ export const books: Array<BookType> = [
     id: 3,
     title: '书籍标题 3',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2024-03',
     review: '非常精彩的内容...',
@@ -45,7 +47,7 @@ export const books: Array<BookType> = [
     id: 4,
     title: '书籍标题 4',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2024-04',
     review: '让人深思的作品...',
@@ -55,7 +57,7 @@ export const books: Array<BookType> = [
     id: 5,
     title: '书籍标题 5',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2024-05',
     review: '引人入胜的故事...',
@@ -65,7 +67,7 @@ export const books: Array<BookType> = [
     id: 6,
     title: '书籍标题 6',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2024-06',
     review: '实用的知识分享...',
@@ -75,7 +77,7 @@ export const books: Array<BookType> = [
     id: 7,
     title: '书籍标题 7',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2024-07',
     review: '优秀的写作风格...',
@@ -85,7 +87,7 @@ export const books: Array<BookType> = [
     id: 8,
     title: '书籍标题 8',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2024-08',
     review: '开阔视野的好书...',
@@ -95,7 +97,7 @@ export const books: Array<BookType> = [
     id: 9,
     title: '书籍标题 9',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2024-09',
     review: '深入浅出的讲解...',
@@ -105,7 +107,7 @@ export const books: Array<BookType> = [
     id: 10,
     title: '书籍标题 10',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2024-10',
     review: '温暖人心的故事...',
@@ -115,7 +117,7 @@ export const books: Array<BookType> = [
     id: 11,
     title: '书籍标题 11',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2024-11',
     review: '极具启发性...',
@@ -125,7 +127,7 @@ export const books: Array<BookType> = [
     id: 12,
     title: '书籍标题 12',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2024-12',
     review: '独特的视角...',
@@ -135,7 +137,7 @@ export const books: Array<BookType> = [
     id: 13,
     title: '书籍标题 13',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2025-01',
     review: '经典之作...',
@@ -145,7 +147,7 @@ export const books: Array<BookType> = [
     id: 14,
     title: '书籍标题 14',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 4,
     readDate: '2025-02',
     review: '引人思考...',
@@ -155,7 +157,7 @@ export const books: Array<BookType> = [
     id: 15,
     title: '书籍标题 15',
     author: '作者名称',
-    cover: '', // 待补充
+    cover: coverImage,
     rating: 5,
     readDate: '2025-03',
     review: '不容错过的好书...',
