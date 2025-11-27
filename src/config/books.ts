@@ -4,182 +4,138 @@ export type BookType = {
   title: string
   author?: string
   cover?: string
-  coverLight?: string  // 明亮模式封面
-  coverDark?: string   // 深色模式封面
   rating?: number
   readDate?: string
   review?: string
   tags?: string[]
 }
 
-const coverImageDark = 'https://github.com/Coekyun-Dou/Felix-s-blog/blob/main/image/%E6%88%91%E4%BB%AC%E4%BB%A8.jpg?raw=true'
-const coverImageLight = 'https://raw.githubusercontent.com/Coekyun-Dou/Felix-s-blog/refs/heads/main/image/%E6%88%91%E4%BB%AC%E4%BB%A8.jpg'
+// 💡 使用说明：
+// 1. 把图片上传到 GitHub 仓库或图床
+// 2. 获取图片直链，GitHub 图片记得在 URL 后加 ?raw=true
+// 3. 把下面的 cover 字段改成你的图片链接
+// 4. 每本书可以有不同的封面
 
 export const books: Array<BookType> = [
   {
     id: 1,
-    title: '书籍标题 1',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《我们仨》',
+    author: '杨绛',
+    cover: 'https://github.com/Coekyun-Dou/Felix-s-blog/blob/main/image/%E6%88%91%E4%BB%AC%E4%BB%A8.jpg?raw=true', // ⬅️ 在这里填入第1本书的封面图片链接
     rating: 5,
     readDate: '2024-01',
     review: '这是一本很棒的书...',
-    tags: ['小说', '科幻']
+    tags: ['散文集', '亲情']
   },
   {
     id: 2,
-    title: '书籍标题 2',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
-    rating: 4,
-    readDate: '2024-02',
-    review: '值得一读的好书...',
-    tags: ['技术', '编程']
+    title: '《三体：地球往事》',
+    author: '刘慈欣',
+    cover: '', // ⬅️ 在这里填入第2本书的封面图片链接
+    rating: 5,
+    readDate: '2025-11',
+    review: '虫子从来没有被打败过！',
+    tags: ['科幻', '小说']
   },
   {
     id: 3,
-    title: '书籍标题 3',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《三体Ⅱ：黑暗森林》',
+    author: '刘慈欣',
+    cover: '', // ⬅️ 在这里填入第3本书的封面图片链接
     rating: 5,
-    readDate: '2024-03',
-    review: '非常精彩的内容...',
-    tags: ['历史', '传记']
+    readDate: '2025-11',
+    review: '黑暗森林法则、猜疑链、技术爆炸...',
+    tags: ['小说', '科幻']
   },
   {
     id: 4,
-    title: '书籍标题 4',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
-    rating: 4,
+    title: '《活着》',
+    author: '余华',
+    cover: '', // ⬅️ 在这里填入第4本书的封面图片链接
+    rating: 5,
     readDate: '2024-04',
-    review: '让人深思的作品...',
-    tags: ['哲学', '思想']
+    review: '活着的意义就是活着...',
+    tags: ['小说', '现实主义']
   },
   {
     id: 5,
-    title: '书籍标题 5',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《看见》',
+    author: '柴静',
+    cover: '', // ⬅️ 在这里填入第5本书的封面图片链接
     rating: 5,
     readDate: '2024-05',
-    review: '引人入胜的故事...',
-    tags: ['文学', '经典']
+    review: '不要因为走得太远而忘了为什么出发...',
+    tags: ['随笔', '社会']
   },
   {
     id: 6,
-    title: '书籍标题 6',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
-    rating: 4,
-    readDate: '2024-06',
-    review: '实用的知识分享...',
-    tags: ['管理', '商业']
+    title: '《我与地坛》',
+    author: '史铁生',
+    cover: '', // ⬅️ 在这里填入第6本书的封面图片链接
+    rating: 5,
+    readDate: '2022-10',
+    review: '我已不在地坛，地坛在我...',
+    tags: ['散文', '哲学']
   },
   {
     id: 7,
-    title: '书籍标题 7',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《许三观卖血记》',
+    author: '余华',
+    cover: '', // ⬅️ 在这里填入第7本书的封面图片链接
     rating: 5,
-    readDate: '2024-07',
-    review: '优秀的写作风格...',
-    tags: ['散文', '随笔']
+    readDate: '2024-09',
+    review: '“S：许三观没有一次卖血是为了自己...”',
+    tags: ['小说', '长篇']
   },
   {
     id: 8,
-    title: '书籍标题 8',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《平凡的世界》',
+    author: '路遥',
+    cover: '', // ⬅️ 在这里填入第8本书的封面图片链接
     rating: 4,
-    readDate: '2024-08',
-    review: '开阔视野的好书...',
-    tags: ['社会', '人文']
+    readDate: '2025-03',
+    review: '激励人心的故事...',
+    tags: ['小说', '长篇']
   },
   {
     id: 9,
-    title: '书籍标题 9',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《海子的诗》',
+    author: '海子',
+    cover: '', // ⬅️ 在这里填入第9本书的封面图片链接
     rating: 5,
     readDate: '2024-09',
-    review: '深入浅出的讲解...',
-    tags: ['科普', '自然']
+    review: '诗意盎然，感人至深...',
+    tags: ['诗集', '文学']
   },
   {
     id: 10,
-    title: '书籍标题 10',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《两个父亲》',
+    author: '袁琼琼',
+    cover: '', // ⬅️ 在这里填入第10本书的封面图片链接
     rating: 4,
     readDate: '2024-10',
     review: '温暖人心的故事...',
-    tags: ['治愈', '生活']
+    tags: ['文学', '亲情']
   },
   {
     id: 11,
-    title: '书籍标题 11',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《芳华》',
+    author: '严歌苓',
+    cover: '', // ⬅️ 在这里填入第11本书的封面图片链接
     rating: 5,
-    readDate: '2024-11',
-    review: '极具启发性...',
-    tags: ['励志', '成长']
+    readDate: '2025-09',
+    review: '集体记忆的回响...',
+    tags: ['文学', '青春']
   },
   {
     id: 12,
-    title: '书籍标题 12',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
+    title: '《情书》',
+    author: '岩井俊二',
+    cover: '', // ⬅️ 在这里填入第12本书的封面图片链接
     rating: 4,
     readDate: '2024-12',
-    review: '独特的视角...',
-    tags: ['艺术', '设计']
-  },
-  {
-    id: 13,
-    title: '书籍标题 13',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
-    rating: 5,
-    readDate: '2025-01',
-    review: '经典之作...',
-    tags: ['名著', '文学']
-  },
-  {
-    id: 14,
-    title: '书籍标题 14',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
-    rating: 4,
-    readDate: '2025-02',
-    review: '引人思考...',
-    tags: ['心理', '认知']
-  },
-  {
-    id: 15,
-    title: '书籍标题 15',
-    author: '作者名称',
-    coverLight: coverImageLight,
-    coverDark: coverImageDark,
-    rating: 5,
-    readDate: '2025-03',
-    review: '不容错过的好书...',
-    tags: ['悬疑', '推理']
+    review: '我们都在时光中寻找那封未寄出的情书...',
+    tags: ['爱情', '青春']
   }
 ]
 

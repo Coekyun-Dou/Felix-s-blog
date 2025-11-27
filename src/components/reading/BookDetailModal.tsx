@@ -5,7 +5,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import { BookType } from '@/config/books'
 import { BookOpen, Calendar, Star, X } from 'lucide-react'
 import Image from 'next/image'
-import { useTheme } from 'next-themes'
 
 interface BookDetailModalProps {
   book: BookType
@@ -14,11 +13,6 @@ interface BookDetailModalProps {
 }
 
 export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps) {
-  const { resolvedTheme } = useTheme()
-  
-  // 根据主题选择封面
-  const coverImage = resolvedTheme === 'dark' ? book.coverDark : book.coverLight
-  
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={onClose}>
@@ -31,7 +25,7 @@ export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps)
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm dark:bg-black/80" />
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -49,7 +43,7 @@ export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps)
                 {/* 关闭按钮 */}
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-muted transition-all duration-300 hover:scale-110 shadow-lg ring-1 ring-muted-foreground/10"
+                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-muted transition-all duration-300 hover:scale-110 shadow-lg"
                 >
                   <X size={20} />
                 </button>
@@ -57,10 +51,10 @@ export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps)
                 <div className="flex flex-col md:flex-row gap-6 p-6">
                   {/* 左侧：书籍封面 */}
                   <div className="flex-shrink-0 w-full md:w-48">
-                    <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden shadow-xl ring-1 ring-muted-foreground/20">
-                      {coverImage ? (
+                    <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
+                      {book.cover ? (
                         <Image
-                          src={coverImage}
+                          src={book.cover}
                           alt={book.title}
                           fill
                           className="object-cover"
